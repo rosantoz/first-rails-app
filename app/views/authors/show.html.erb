@@ -1,0 +1,28 @@
+<% if notice %>
+  <div class="alert alert-danger">
+    <%= notice %>
+  </div>
+<% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<strong>
+  		<%= @author.name %>
+  	</strong>
+  </div>
+  <div class="panel-body">
+
+  <div>
+    <strong>Books: </strong>
+    <% if @author.titles.empty? %>
+      <li>This author has no books</li>
+    <% else %>   
+      <%= render 'authors/book', :titles => @author.titles %>
+    <% end %>
+  </div>
+  <br />
+
+    <%= link_to 'Edit', edit_author_path(@author), {:class => "btn btn-success"} %> 
+	<%= link_to 'Back', authors_path, {:class => "btn btn-default"} %>
+  </div>
+</div>

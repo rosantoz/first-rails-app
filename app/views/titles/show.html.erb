@@ -1,0 +1,18 @@
+<% if notice %>
+  <div class="alert alert-danger">
+    <%= notice %>
+  </div>
+<% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<strong>
+  		<%= @title.title %>
+  	</strong>
+  	(<%= @title.author.name %>)
+  </div>
+  <div class="panel-body">
+    <%= link_to 'Edit', edit_title_path(@title), {:class => "btn btn-success"} %> 
+	<%= link_to 'Back', titles_path, {:class => "btn btn-default"} %>
+  </div>
+</div>

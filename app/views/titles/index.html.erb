@@ -1,0 +1,29 @@
+<h1>Listing titles</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @titles.each do |title| %>
+      <tr>
+        <td><%= title.author.name %></td>
+        <td><%= title.title %></td>
+        <td><%= link_to 'Show', title, {:class => "btn btn-success"} %></td>
+        <td><%= link_to 'Edit', edit_title_path(title), {:class => "btn btn-primary"} %></td>
+        <td><%= link_to 'Destroy', title, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Title', new_title_path, {:class => "btn btn-default"} %>
